@@ -43,8 +43,9 @@
 <body class="grid">
     <!-- добавьте вёрстку -->
     <div class="container">
-        <div class="header"><h3>Магазин игрушек</h3></div>
-        <div class="filter"><h3>Цвет</h3>
+        <div class="header"><h2>Магазин игрушек</h2></div>
+        <div class="filter"><p><b>Цвет</b></p>
+            <div class="color">
             <div><input type="checkbox" name="color" value="White">
     <label for="coding">Белый</label></div>
     <div><input type="checkbox" name="color" value="Blue">
@@ -53,7 +54,9 @@
     <label for="coding">Красный</label></div>
     <div><input type="checkbox" name="color" value="Yellow">
     <label for="coding">Желтый</label></div>
-            <h3>Размер</h3>
+</div>
+            <p><b>Размер</b></p>
+            <div class="size">
             <div><input type="checkbox" name="color" value="Big">
             <label for="coding">Большой</label></div>
             <div><input type="checkbox" name="color" value="Small">
@@ -61,37 +64,41 @@
             <div><input type="checkbox" name="color" value="Medium">
             <label for="coding">Средний</label></div>
         </div>
+        </div>
         <div class="category"><h1>Мягкие игрушки</h1><p>Все дети любят мягкие игрушки</p></div>
         <div class="subcat"><div><a href="">Котики</a>
-            Мяукают и ловят мышей
+           <p>Мяукают и ловят мышей</p>
         </div>
 
         <div><a href="">Медведи</a>
-            Верные друзья
+            <p>Верные друзья</p>
         </div></div>
-        <div class="popular"><h1>Популярные</h1> </div>
-        <div class="item1"><img> <a href="#">Федор</a><button>Купить</button></div>
-        <div class="item2"><img> <a href="#">Персик</a> <button>Купить</button></div>
-        <div class="item3"><img> <a href="#">Адольф</a> <button>Купить</button></div>
-        <div class="item4"><img> <a href="#">Барсик</a> <button>Купить</button> </div>
-        <div class="item5"><img> <a href="#">Дружок</a> <button>Купить</button> </div>
-        <div class="item6"><img> <a href="#">Пушок</a> <button>Купить</button></div>
-        <div class="footer"> <div>Контакты</div>
-        <div>(с) 2021 Магазин игрушек</div></div>
+        <div class="popular"><h2>Популярные</h2> </div>
+        <div class="item1"><img/> <a href="#">Федор</a><br><button>Купить</button></div>
+        <div class="item2"><img/> <a href="#">Персик</a><br><button>Купить</button></div>
+        <div class="item3"><img/> <a href="#">Адольф</a><br><button>Купить</button></div>
+        <div class="item4"><img/> <a href="#">Барсик</a><br><button>Купить</button></div>
+        <div class="item5"><img/> <a href="#">Дружок</a><br><button>Купить</button></div>
+        <div class="item6"><img/> <a href="#">Пушок</a><br><button>Купить</button></div>
+        <div class="footer"> <div>Контакты</div>     <div>(с) 2021 Магазин игрушек</div></div>
       </div>
 
 
     <style>
        
-body {
+html,body {
+    max-width: 100%;
+    overflow-x: hidden;
      text-align: left;
-     
+     font-size: 16px;
+     line-height: 16px;
+     height: 100px;
     
   }
 
   .container {
   display: grid;
-  grid-template-columns: 20fr 19fr 19fr 19fr;
+  grid-template-columns: 240px 19fr 19fr 19fr;
   grid-template-rows: 5fr 8fr 6fr 5fr 7fr 7fr 4fr;
   gap: 12px 12px;
   grid-auto-flow: row;
@@ -109,15 +116,59 @@ body {
 
 }
 
-.header { grid-area: header; }
+.header { grid-area: header; 
+padding-left: 12px;
+background-color: var(--color-accent);}
 
-.filter { grid-area: filter; }
+.header > h2 {
+    color: var(--color-white);
+}
 
-.category { grid-area: category; }
+.filter { grid-area: filter;
+padding-left: 12px; }
 
-.subcat { grid-area: subcat; }
+.color, .size {
+    padding-left: 12px;
+}
 
-.popular { grid-area: popular; }
+.category { grid-area: category; 
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 12px;
+    background-color: var(--color-light-gray);
+}
+
+    
+
+
+.subcat { grid-area: subcat; 
+    display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+.subcat > div {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 12px;
+    width: 47%;
+    margin-right: 12px;
+    background-color: var(--color-light-gray);
+}
+.subcat > div:nth-child(2) {
+    margin-right: 0;
+}
+
+
+
+.popular { grid-area: popular; 
+    padding-left: 12px;
+padding-top: auto;
+padding-bottom: auto;
+}
 
 .footer { grid-area: footer; }
 
@@ -133,13 +184,26 @@ body {
 
 .item6 { grid-area: item6; }
 
+.item1,.item2,.item3,.item4, .item5,.item6 {
+    padding-left: 12px;
+    padding-top: 12px;
+}
+.item1,.item2,.item3,.item4, .item5,.item6 > div {
+    padding-left: 12px;
+    } 
+
 
 html, body {
   height: 100%;
   margin: 0;
 }
   
-/* For presentation only, no need to copy the code below */
+h1{
+    font-size: 32px;
+}
+h2{
+    font-size: 24px;
+}
 
 .container * {
   border: 1px solid red;
@@ -172,23 +236,83 @@ a:active{
 }
         
         img {
+
             background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII=);
-            min-width: 24px;
-            min-height: 24px;
+            width: 60px;
+            height:60px;
+            float:left;
+            margin-right: 12px;
+                        
+        }
+        a {
+            width: 60px;
+        }
+
+        button {
+            margin-top: 24px;
+            padding-bottom: 0;
+            width: 72px;
         }
 
      
         
 
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
-        
-
-footer > div {
+.footer > div {
     width: auto;
     
 }
 
+@media only screen and (min-width:517px) and (max-width:768px) {
 
+    .container {
+    grid-template-columns: 248px 248px 248px;
+    grid-template-rows: 5fr 8fr 6fr 5fr 7fr 7fr;
+  grid-template-areas:
+    "header header header"
+    "category category category"
+    "subcat subcat subcat"
+    "popular popular popular"
+    "item1 item2 item3"
+    "item4 item5 item6";
+  margin-left: 12px;
+    margin-right: 12px;
+    }
+}
+
+@media only screen and (min-width:100px) and (max-width: 516px) {
+    .container {
+    grid-template-columns: 492px;
+    grid-template-rows: 5fr 8fr 6fr 5fr 7fr 7fr 7fr 7fr 7fr 7fr;
+  grid-template-areas:
+    "header"
+    "category"
+    "subcat"
+    "popular"
+    "item1"
+    "item2"
+    "item3"
+    "item4"
+    "item5"
+    "item6";
+  margin-left: 12px;
+    margin-right: 12px;
+    }
+
+    .subcat > div {
+      width: 100%;
+    
+}
+.subcat > div:nth-child(2) {
+    margin-top: 12px;
+
+}
+   
         /* добавьте стили */
     </style>
 </body>
