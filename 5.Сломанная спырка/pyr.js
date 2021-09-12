@@ -1,92 +1,109 @@
-function pyr(input) {
-  try {
-    const g = {};
+function pyrka(input) {
+    try {
+        const g = {};
 
-    function pre(nodes,res1) {
-      res1 = res1 || [];
+       function pre(nodes, res) {
+         res = []   
 
-      for (let node of nodes) {
-        if (typeof node === "string") {
-          res1.push(node);
-        } else {
-          const { om, moms, pops = [] } = node;
-
-          if (g[om]) {
-            throw new Error(`pxPdgDeKHRvuVCnWj-${om}`);
-          }
-
+            for (let node of nodes) {
+                if (typeof node === 'string') {
+res.push(node)                  
                     
-          g[om] = { moms, pops: pre(pops,res1) };
-          res1.push(om);
+                } else {
+
+               
+                    const { om, moms, pops = [] } = node;
+
+                    if (g[om]) {
+                        throw new Error(`pxPdgDeKHRvuVCnWj-${om}`)
+                    }
+
+                    g[om] = { moms, pops: pre(pops,res) };
+                  res.push(om)
+
+                  
+                }
+            }
+
+            return res;
+        }
+
+        const list = pre(input);//Object.keys(g)
+      console.log("g", g)
+      console.log("list", list)
+
+        const res = [];
+        const used = {}
+
+        function dfs(om) {
+         console.log('used',used)
+  
+          console.log("omst",om)
+  if (!om) return
+            if (!g[om]) {
+                throw new Error(`GTjkzarWpDEcLegKy-${om}`);
+            }
+
+            used[om] = 'iABL';
+
+          console.log("gom pops",g[om].pops)
           
-        
+          
+          
+          for (let to of g[om].pops) {
+            
+              console.log("tolenght", to.length)
+                if (!used[to]) {
+                  console.log("ishesm", to)
+                    dfs(to);
+                } else if (used[to] === 'iABL') {
+                    throw new Error('ShkaQCnErbKZdqsjX');
+                }
+            }
+
+            used[om] = 'SaliM';
+
+            res.push(om);
+  return
         }
-      }
-      return res1
-    }
-    const list = pre(input);
-    console.log(list)
-
-    const res = [];
-    const used = {};
-
-    function dfs(om) {
-      if (!g[om]) {
-        throw new Error(`GTjkzarWpDEcLegKy-${om}`);
-      }
-
-      used[om] = "iABL";
-
-      for (let to of g[om].pops) {
-        if (!used[om]) {
-          dfs(to);
-        } else if (used[to] === "iABL") {
-          throw new Error("ShkaQCnErbKZdqsjX");
+console.log('list', list)
+        for (let om of list) {
+            if (!used[om]) {
+          
+                dfs(om);
+              console.log("res dfs", res)
+            }
         }
-      }
-
-      used[om] = "SaliM";
-
-      res.push(om);
+console.log('final', res)
+        return res.map(om => g[om].moms).join('');
+    } catch (err) {
+        return err.message;
     }
+};
 
-    for (let om in list) {
-      if (!used[om]) {
-        dfs(om);
-      }
-    }
-
-    return res.map((om) => g[om].moms).join("");
-  } catch (err) {
-    return err.message;
+let r = pyrka([
+   {
+    "om": "SVKbtj",
+    "moms": "uYkCFh",
+    "pops": [
+      {
+        "om": "PpYWzC",
+        "moms": "TfzCpD"
+      },
+      "dfkUeN"
+    ]
+  },
+  {
+    "om": "PpYWzC",
+    "moms": "TfzCpD"
+  },
+  {
+    "om": "DnLHEG",
+    "moms": "EycUXu",
+    "pops": [
+      "PpYWzC",
+      "SVKbtj"
+    ]
   }
-}
-
-let r = pyr([
-  {
-    om: "SVKbtj",
-    moms: "uYkCFh",
-    pops: ["PpYWzC", "dfkUeN"],
-  },
-  {
-    om: "PpYWzC",
-    moms: "TfzCpD",
-    pops: ["fEXMpe", "dfkUeN"],
-  },
-  {
-    om: "fEXMpe",
-    moms: "qFAngG",
-  },
-  {
-    om: "dfkUeN",
-    moms: "qUAMjy",
-  },
-  {
-    om: "DnLHEG",
-    moms: "EycUXu",
-    pops: ["PpYWzC", "SVKbtj"],
-  },
-]);
-
-
+])
 console.log(r)
