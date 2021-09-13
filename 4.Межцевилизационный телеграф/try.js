@@ -7,32 +7,66 @@
 /// 0,[1,1,1,1,1]   0
 
 
-function spend(amount, costsArray) {
+function spend(amount, costsArray, res) {
+  
+  console.log("amount", amount)
   
   
-  let min = [...costsArray].sort()[0]
-  console.log(min)
+  res = res || ""
   
-  let res = ""
+  console.log("costsArray",costsArray)
+  let asc = [...costsArray].sort((a,b) => b - a);
+  console.log("costsArray sorted", asc)
   
-  while (amount > 0) {
-    
-   res+=costsArray.indexOf(min)+1
-   amount = amount - min
-    
-    console.log("amount:"+ amount)
+  let digits = asc[0].toString().length
+   console.log("d",digits)
+  
+  
+  console.log("curr digits", digits)
+  let curSlice = [...asc].filter( el=> el.toString().length === digits)
+  console.log('curSlice and digits', curSlice,digits)
+  let bestBuy = [...curSlice].sort((a,b)=> a-b)[0]
+  console.log('best buy', bestBuy)
+  
+  
+
+
+  if (amount >=bestBuy) {  
+
+    res = res + bestBuy
+    amount -= bestBuy   
   }
-      
-  return res
+  
+    let cutArray
+  if (amount < bestBuy) {
+  cutArray = [...costsArray].filter( f => f.toString().length < digits)
+  } 
+  else cutArray = [...costsArray]
+  
+     
+  console.log("cut array" , cutArray)
+  
+  
+      console.log("f amount", amount)
+  if (amount < bestBuy) {
+                 res = spend(amount, cutArray, res)  }
+  else  
+    console.log("res",res)   
+      return res
+    
+  
+  
+  
+  
+  //return res
   
 }
 
 
-//return string
+let r = spend(2,[9,11,1,12,5,888,9,10,6])
 
 
-spend(0,[9,11,1,12,5,8,9,10,6])
-
+console.log("rersdfsdfsdfdrrrr", r)
 
 
 
