@@ -12,7 +12,7 @@
         }
 
         .grid {
-            --color-grid: #ccc;
+            --color-grid: rgb(63, 7, 7);
             --back-color: rgba(180, 0, 180, 0.1);
         }
 
@@ -43,28 +43,44 @@
 <body class="grid">
     <!-- добавьте вёрстку -->
     <div class="container">
-        <div class="header"><h2>Магазин игрушек</h2></div>
-        <div class="filter"><p><b>Цвет</b></p>
+        <header><h2>Магазин игрушек</h2></header>
+        
+        <section class="filter"><b>Цвет</b>
             <div class="color">
-            <div><input type="checkbox" name="color" value="White">
-    <label for="coding">Белый</label></div>
-    <div><input type="checkbox" name="color" value="Blue">
-<label for="coding">Синий</label></div>
-   <div><input type="checkbox" name="color" value="Red">
-    <label for="coding">Красный</label></div>
-    <div><input type="checkbox" name="color" value="Yellow">
-    <label for="coding">Желтый</label></div>
+
+
+                <label>
+                    <input type="checkbox"/>Белый
+                  </label><br>
+
+                  <label>
+                    <input type="checkbox"/>Синий
+                  </label><br>
+
+                  <label>
+                    <input type="checkbox"/>Красный
+                  </label><br>
+
+                  <label>
+                    <input type="checkbox"/>Желтый
+                  </label><br>
+
+
+         
 </div>
-            <p><b>Размер</b></p>
+            <b>Размер</b>
             <div class="size">
-            <div><input type="checkbox" name="color" value="Big">
-            <label for="coding">Большой</label></div>
-            <div><input type="checkbox" name="color" value="Small">
-            <label for="coding">Маленький</label></div>
-            <div><input type="checkbox" name="color" value="Medium">
-            <label for="coding">Средний</label></div>
+    
+                <label>
+                <input type="checkbox"/>Большой</label><br>
+              <label><input type="checkbox"/>Маленький
+              </label><br>
+              <label><input type="checkbox"/>Средний</label><br>
+
+
         </div>
-        </div>
+    </section>
+        <section class="content">
         <div class="category"><h1>Мягкие игрушки</h1><p>Все дети любят мягкие игрушки</p></div>
         <div class="subcat"><div><a href="">Котики</a>
            <p>Мяукают и ловят мышей</p>
@@ -74,148 +90,220 @@
             <p>Верные друзья</p>
         </div></div>
         <div class="popular"><h2>Популярные</h2> </div>
-        <div class="item1"><img/> <a href="#">Федор</a><br><button>Купить</button></div>
-        <div class="item2"><img/> <a href="#">Персик</a><br><button>Купить</button></div>
-        <div class="item3"><img/> <a href="#">Адольф</a><br><button>Купить</button></div>
-        <div class="item4"><img/> <a href="#">Барсик</a><br><button>Купить</button></div>
-        <div class="item5"><img/> <a href="#">Дружок</a><br><button>Купить</button></div>
-        <div class="item6"><img/> <a href="#">Пушок</a><br><button>Купить</button></div>
-        <div class="footer"> <div>Контакты</div>     <div>(с) 2021 Магазин игрушек</div></div>
-      </div>
+        <section class="goods">
+        <div class="item"><img/> <div><a href="#">Фёдор</a><button>Купить</button></div></div>
+        <div class="item"><img/> <div><a href="#">Персик</a><button>Купить</button></div></div>
+        <div class="item"><img/> <div><a href="#">Адольф</a><button>Купить</button></div></div>
+        <div class="item"><img/> <div><a href="#">Барсик</a><button>Купить</button></div></div>
+        <div class="item"><img/> <div><a href="#">Дружок</a><button>Купить</button></div></div>
+        <div class="item"><img/> <div><a href="#">Пушок</a><button>Купить</button></div></div>
+    </section>
+</section>
+
+        <section class="footer"> <div>Контакты</div>     <div>&copy 2021 Магазин игрушек</div></div>
+        </section>
 
 
     <style>
        
 html,body {
-    max-width: 100%;
-    overflow-x: hidden;
-     text-align: left;
+    
+     
      font-size: 16px;
-     line-height: 12px;
-     height: 100px;
+     
     
   }
 
-  .container {
+.container {
   display: grid;
-  grid-template-columns: 240px 228px 228px 228px;
-  grid-template-rows: 60px 96px 72px 60px 84px 84px 48px;
-  gap: 12px 12px;
-  grid-auto-flow: row;
+  grid-template-columns: 240px auto;
+  grid-template-rows: 60px 468px 48px;
+  gap: 12px;
+  grid-auto-flow: column;
   grid-template-areas:
-    "header header header header"
-    "filter category category category"
-    "filter subcat subcat subcat"
-    "filter popular popular popular"
-    "filter item1 item2 item3"
-    "filter item4 item5 item6"
-    "footer footer footer footer";
+    "header header"
+    "filter content"
+    "footer footer";
   margin-left: auto;
     margin-right: auto;
     max-width: 960px;
+   
 
+}  
+
+header { grid-area: header; 
+   
+padding-left: 12px;
+margin-bottom: 12px;
+min-height: 60px;
+display: flex;
+align-items: center;
+background-color: var(--color-accent);
 }
 
-.header { grid-area: header; 
-padding-left: 12px;
-background-color: var(--color-accent);}
-
-.header > h2 {
+header > h2 {
+    font-size: 24px;
     color: var(--color-white);
 }
 
 .filter { grid-area: filter;
+padding-top: 12px;
 padding-left: 12px; 
-background-color: var(--color-light-gray);}
+background-color: var(--color-light-gray);
+}
 
+.filter > div {
+    margin:0;
+   
+    
+}
+
+.filter > p {
+    margin: 0;
+    padding: 0;
+    background-color: darkseagreen;
+}
 .color, .size {
+    
     padding-left: 12px;
+    line-height: 24px;
+    background-color: dodgerblue;
+}
+
+.color {
+    padding-top: 2px;
+}
+
+.size {
+    padding-top: 2px;
+}
+
+.filter > input {
+      background-color: darkseagreen;
+  }
+
+  label {
+    
+    margin:0;
+  }
+
+.content {
+    margin: 0;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 12px;
+    
 }
 
 .category { grid-area: category; 
-    padding-top: auto;
-    padding-bottom:auto;
-    padding-left: 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0px;
+    justify-content: space-between;
+    padding: 12px;
+    padding-top: 20px;
+    min-height: 96px;
+    background-color: gray;
     
 }
-
-    
-
+.category > * {
+    margin:0;
+    padding:0;
+}
+.category> h1 {
+    padding:0;
+    margin:0;
+}
 
 .subcat { grid-area: subcat; 
-    display: flex;
-flex-direction: row;
+display: flex;
 flex-wrap: wrap;
+flex-basis: 0px;
 justify-content: space-between;
+gap: 12px;
+
+
+
 }
 
 .subcat > div {
-    display:flex;
+    box-sizing: border-box;
+    padding-left: 12px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 12px;
-    padding-left: 12px;
-    width: 47%;
-    margin-right: 12px;
-    background-color: var(--color-light-gray);
+    min-width: calc(50% - 6px);
+    background-color: khaki;
+    min-height: 72px;
 }
-.subcat > div:nth-child(2) {
-    margin-right: 0;
-}
+
 
 .subcat >div > p {
     color:var(--color-dark-gray);
- 
+ margin:0;
 }
 
-
-
 .popular { grid-area: popular; 
+    display: flex;
     padding-left: 12px;
-margin-top: auto;
-margin-bottom: auto;
+    min-height: 60px;
+    flex-basis: 0px
+
+}
+
+.popular > h2 {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.goods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    overflow-y: hidden;
 }
 
 .footer { grid-area: footer;
-background-color: var(--color-light-gray); }
-
-.item1 { grid-area: item1; }
-
-.item2 { grid-area: item2; }
-
-.item3 { grid-area: item3; }
-
-.item4 { grid-area: item4; }
-
-.item5 { grid-area: item5; }
-
-.item6 { grid-area: item6; }
-
-.item1,.item2,.item3,.item4, .item5,.item6 {
-    padding-left: 12px;
-    padding-top: 12px;
-    background-color: var(--color-light-gray);
+background-color: var(--color-light-gray); 
+padding:12px;
 }
-.item1,.item2,.item3,.item4, .item5,.item6 > div {
-    padding-left: 12px;
-    } 
 
-    .item4, .item5,.item6 {
-        margin-bottom: 12px;
-        padding-bottom: 12px;
-        background-color: darkseagreen;
-    }
+.item{
+    box-sizing: border-box;
+    flex-basis: calc(32.204% - 24px);
+    flex-grow: 1;
+    display: flex;
+     flex-direction: row;
+     justify-content: flex-start  ;  
+     column-gap: 12px;
+    padding: 12px;
+    background-color: var(--color-light-gray);
+    max-width: 216px;
+    max-height: 84px;
+}
+
+ .item > div {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between  ;  
+ }
 
 
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
   
 h1{
     font-size: 32px;
+    line-height: 32px;
 }
-h2{
+h2{ 
     font-size: 24px;
 }
 
@@ -225,24 +313,6 @@ h2{
 }
 
 
-
-
-.container *:after {
-    border: 0.5px dotted red;
-  content:attr(class);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
-        
   a:link,
 a:visited,
 a:hover,
@@ -253,21 +323,15 @@ a:active{
         img {
 
             background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII=);
-            width: 60px;
-            height:60px;
-            float:left;
-            margin-right: 12px;
-                        
+            min-width: 60px;
+            min-height:60px;
+                                    
         }
-        a {
-            width: 60px;
-        }
+        
 
         button {
-            margin-top: 24px;
-            padding-bottom: 0;
-            width: 72px;
-            height: 24px;
+           width: 72px;
+           
         }
 
      
@@ -284,50 +348,35 @@ a:active{
     
 }
 
-@media only screen and (min-width:517px) and (max-width:768px) {
+@media (max-width:768px) {
 
     .container {
-    grid-template-columns: 248px 248px 248px;
-    grid-template-rows: 5fr 8fr 6fr 5fr 7fr 7fr;
-  grid-template-areas:
-    "header header header"
-    "category category category"
-    "subcat subcat subcat"
-    "popular popular popular"
-    "item1 item2 item3"
-    "item4 item5 item6";
-  margin-left: 12px;
-    margin-right: 12px;
-    }
-}
-
-@media only screen and (min-width:100px) and (max-width: 516px) {
-    .container {
-    grid-template-columns: 492px;
-    grid-template-rows: 5fr 8fr 6fr 5fr 7fr 7fr 7fr 7fr 7fr 7fr;
+    grid-template-columns: 100%;
+    grid-template-rows: 60px auto;
   grid-template-areas:
     "header"
-    "category"
-    "subcat"
-    "popular"
-    "item1"
-    "item2"
-    "item3"
-    "item4"
-    "item5"
-    "item6";
-  margin-left: 12px;
+    "content";
+    margin-left: 12px;
     margin-right: 12px;
+    max-width: 744px;
     }
-
-    .subcat > div {
-      width: 100%;
     
 }
 
+@media (max-width: 516px) {
+    .container {
+  max-width: 492px;
+    }
 
-.subcat > div:nth-child(2) {
-    margin-top: 12px;
+   .item { 
+    max-width: 492px;
+    flex-basis: 100%;
+    
+   }
+
+.subcat > div{
+
+    flex-basis: 100%;
 
 }
    
