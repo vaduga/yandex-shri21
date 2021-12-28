@@ -20,4 +20,4 @@
 https://user-images.githubusercontent.com/10768299/136014816-686deb05-a9a1-48bd-8703-9a98586f43bd.mp4
 
 
-
++ вступитльная задача на курс Middle Frontend. Задача решена через BFS, на разборе предложили алг. Дейкстры
